@@ -7,13 +7,9 @@ workflows:
       flutter: stable
       java: 17
     scripts:
-      - name: Re-create Flutter project structure
+      - name: Recreate Android directory
         script: |
-          cd ..
-          flutter create --org com.example temp_app
-          cp -r temp_app/android clone/
-          cp -r temp_app/ios clone/
-          cp -r temp_app/web clone/
+          flutter create . --org com.example --project-name app_pengingat
       - name: Get Flutter packages
         script: |
           flutter pub get
