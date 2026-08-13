@@ -7,13 +7,17 @@ workflows:
       flutter: stable
       java: 17
     scripts:
-      - name: Recreate Android Project
+      - name: Clean previous builds
         script: |
-          flutter create . --org com.example --project-name app_pengingat --platforms=android --overwrite
+          flutter clean
+      - name: Re-generate Android V2 Project
+        script: |
+          rm -rf android
+          flutter create . --org com.example --project-name app_pengingat --platforms=android
       - name: Get Flutter packages
         script: |
           flutter pub get
-      - name: Build APK with Flutter
+      - name: Build APK Release
         script: |
           flutter build apk --release
     artifacts:
