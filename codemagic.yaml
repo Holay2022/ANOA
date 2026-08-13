@@ -7,9 +7,9 @@ workflows:
       flutter: stable
       java: 17
     scripts:
-      - name: Recreate Android directory
+      - name: Recreate full android files
         script: |
-          flutter create . --org com.example --project-name app_pengingat
+          flutter create . --org com.example --project-name app_pengingat --overwrite
       - name: Get Flutter packages
         script: |
           flutter pub get
