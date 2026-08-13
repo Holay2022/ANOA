@@ -7,10 +7,9 @@ workflows:
       flutter: stable
       java: 17
     scripts:
-      - name: Recreate Android project with V2 Embedding
+      - name: Recreate Android Project
         script: |
-          rm -rf android
-          flutter create . --org com.example --project-name app_pengingat --platforms=android
+          flutter create . --org com.example --project-name app_pengingat --platforms=android --overwrite
       - name: Get Flutter packages
         script: |
           flutter pub get
