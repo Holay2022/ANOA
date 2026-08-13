@@ -7,12 +7,16 @@ workflows:
       flutter: stable
       java: 17
     scripts:
-      - name: Set up local.properties
+      - name: Re-create Flutter project structure
         script: |
-          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+          cd ..
+          flutter create --org com.example temp_app
+          cp -r temp_app/android clone/
+          cp -r temp_app/ios clone/
+          cp -r temp_app/web clone/
       - name: Get Flutter packages
         script: |
-          flutter packages pub get
+          flutter pub get
       - name: Build APK with Flutter
         script: |
           flutter build apk --release
